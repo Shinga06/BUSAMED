@@ -1,0 +1,36 @@
+/* Busamed Hillcrest Private Hospital - Theatre Charging System (Phase 1 Styles) */
+:root {
+  --busamed-navy: #0f294a;
+  --busamed-blue: #1d4ed8;
+  --busamed-teal: #0d9488;
+  --busamed-surface: #f8fafc;
+  --busamed-card: #ffffff;
+  --busamed-border: #e2e8f0;
+  --busamed-text: #0f172a;
+  --busamed-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--busamed-surface);
+  color: var(--busamed-text);
+}
+
+/* Touch friendly targets for iPad Nurse mode */
+.touch-target {
+  min-height: 44px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3);
+  border-radius: 9999px;
+}
