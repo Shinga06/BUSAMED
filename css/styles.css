@@ -2,12 +2,12 @@
 :root {
   --busamed-navy: #0f294a;
   --busamed-blue: #1d4ed8;
-  --busamed-teal: #0d9488;
-  --busamed-surface: #f8fafc;
+  --busamed-teal: #1d4ed8;
+  --busamed-surface: #ffffff;
   --busamed-card: #ffffff;
-  --busamed-border: #e2e8f0;
-  --busamed-text: #0f172a;
-  --busamed-muted: #64748b;
+  --busamed-border: #dbeafe;
+  --busamed-text: #0f294a;
+  --busamed-muted: #1d4ed8;
 }
 
 * {

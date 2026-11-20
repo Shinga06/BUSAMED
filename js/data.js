@@ -437,13 +437,12 @@ const INITIAL_STATE = {
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_STATE));
-      return JSON.parse(JSON.stringify(INITIAL_STATE));
-    }
-    return JSON.parse(raw);
+    const state = raw ? JSON.parse(raw) : JSON.parse(JSON.stringify(INITIAL_STATE));
+    ensureMasters(state); // Phase 2: older saved sessions get the master data seeded automatically
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    return state;
   } catch (e) {
-    return JSON.parse(JSON.stringify(INITIAL_STATE));
+    return ensureMasters(JSON.parse(JSON.stringify(INITIAL_STATE)));
   }
 }
 
@@ -456,6 +455,7 @@ function saveState(state) {
 }
 
 function resetDemoState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_STATE));
-  return JSON.parse(JSON.stringify(INITIAL_STATE));
+  const fresh = ensureMasters(JSON.parse(JSON.stringify(INITIAL_STATE)));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
+  return fresh;
 }
